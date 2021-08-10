@@ -22,14 +22,13 @@ export default function Home({navigation}) {
   const [, set_tasks] = tasks_state;
   const changeTaskState = (id, checked) => {
     const newStatus = checked ? 'completed' : 'uncompleted';
-    let out;
+
     set_tasks(tasks => {
       const tasks_copy = [...tasks];
       const index = tasks_copy.findIndex(item => item.id === id);
       if (index > -1) {
         tasks_copy[index].status = newStatus;
       }
-      out = tasks_copy;
       return tasks_copy;
     });
   };
